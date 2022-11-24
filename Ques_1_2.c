@@ -20,6 +20,9 @@
 int time1diff,time2diff,time3diff;
 
 int main(){
+    FILE * fptr;
+    fptr=fopen("/home/vidur/bkhcod/ans2.txt","a");
+    char str[42];
 	pid_t pid1, pid2, pid3;
 	pid1 = fork();
 	if (pid1 == 0) {
@@ -35,14 +38,10 @@ int main(){
         int sec1 = (end.tv_sec - start.tv_sec);
         int micro1 = ((sec1 * 1000000) + end.tv_usec) - (start.tv_usec);
         time1diff=micro1;
-        FILE * fptr;
-        fptr=fopen("/home/vidur/bkhcod/ans2.txt","a");
         //fputs("Vidur is good boy",fptr);
-        char str[42];
         sprintf(str, "%d", time1diff);
         fputs(str,fptr);
         fputs("\n",fptr);
-        fclose(fptr);
 	}
 	else {
 		pid2 = fork();
@@ -59,14 +58,9 @@ int main(){
             int sec1 = (end.tv_sec - start.tv_sec);
             int micro1 = ((sec1 * 1000000) + end.tv_usec) - (start.tv_usec);
             time2diff=micro1;
-            FILE * fptr;
-            fptr=fopen("/home/vidur/bkhcod/ans2.txt","a");
-            //fputs("Vidur is good boy",fptr);
-            char str[42];
             sprintf(str, "%d", time2diff);
             fputs(str,fptr);
             fputs("\n",fptr);
-            fclose(fptr);
 		}
 		else {
 			pid3 = fork();
@@ -83,19 +77,15 @@ int main(){
                 int sec1 = (end.tv_sec - start.tv_sec);
                 int micro1 = ((sec1 * 1000000) + end.tv_usec) - (start.tv_usec);
                 time3diff=micro1;
-                FILE * fptr;
-                fptr=fopen("/home/vidur/bkhcod/ans2.txt","a");
-                //fputs("Vidur is good boy",fptr);
-                char str[42];
                 sprintf(str, "%d", time3diff);
                 fputs(str,fptr);
                 fputs("\n",fptr);
-                fclose(fptr);
 			}
 			else {
 				wait(NULL);
 			}
 		}
 	}
+    fclose(fptr);
 	return 0;
 }
