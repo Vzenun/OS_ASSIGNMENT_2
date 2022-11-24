@@ -23,12 +23,13 @@ int main(){
 	pid_t pid1, pid2, pid3;
 	pid1 = fork();
 	if (pid1 == 0) {
+        chdir("/home/vidur/new_kernel/linux_a");
         struct timeval start, end;
         gettimeofday(&start, NULL);
         struct sched_param param;
         param.sched_priority=0;
         int ret = sched_setscheduler(getpid(), SCHED_OTHER, &param);
-		char * k[]={"/Users/vidurgoel/Desktop/Tutorial7/bs.sh",NULL};
+		char * k[]={"/home/vidur/bkhcod/bs.sh",NULL};
         execvp(k[0],k);
         gettimeofday(&end, NULL);
         int sec1 = (end.tv_sec - start.tv_sec);
@@ -46,12 +47,13 @@ int main(){
 	else {
 		pid2 = fork();
 		if (pid2 == 0) {
+            chdir("/home/vidur/new_kernel/linux_b");
             struct timeval start, end;
             gettimeofday(&start, NULL);
             struct sched_param param;
             param.sched_priority=50;
             int ret = sched_setscheduler(getpid(), SCHED_RR, &param);
-			char * k[]={"/Users/vidurgoel/Desktop/Tutorial7/bs.sh",NULL};
+			char * k[]={"/home/vidur/bkhcod/bs.sh",NULL};
             execvp(k[0],k);
             gettimeofday(&end, NULL);
             int sec1 = (end.tv_sec - start.tv_sec);
@@ -69,12 +71,13 @@ int main(){
 		else {
 			pid3 = fork();
 			if (pid3 == 0) {
+                chdir("/home/vidur/new_kernel/linux_c");
                 struct timeval start, end;
                 gettimeofday(&start, NULL);
                 struct sched_param param;
                 param.sched_priority=50;
                 int ret = sched_setscheduler(getpid(), SCHED_FIFO, &param);
-				char * k[]={"/Users/vidurgoel/Desktop/Tutorial7/bs.sh",NULL};
+				char * k[]={"/home/vidur/bkhcod/bs.sh",NULL};
                 execvp(k[0],k);
                 gettimeofday(&end, NULL);
                 int sec1 = (end.tv_sec - start.tv_sec);
