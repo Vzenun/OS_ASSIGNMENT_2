@@ -1,2 +1,1 @@
-ls
-pwd
+make -j$(nproc)

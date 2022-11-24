@@ -36,7 +36,7 @@ int main(){
         int micro1 = ((sec1 * 1000000) + end.tv_usec) - (start.tv_usec);
         time1diff=micro1;
         FILE * fptr;
-        fptr=fopen("ans2.txt","a");
+        fptr=fopen("/home/vidur/bkhcod/ans2.txt","a");
         //fputs("Vidur is good boy",fptr);
         char str[42];
         sprintf(str, "%d", time1diff);
@@ -60,7 +60,7 @@ int main(){
             int micro1 = ((sec1 * 1000000) + end.tv_usec) - (start.tv_usec);
             time2diff=micro1;
             FILE * fptr;
-            fptr=fopen("ans2.txt","a");
+            fptr=fopen("/home/vidur/bkhcod/ans2.txt","a");
             //fputs("Vidur is good boy",fptr);
             char str[42];
             sprintf(str, "%d", time2diff);
@@ -84,7 +84,7 @@ int main(){
                 int micro1 = ((sec1 * 1000000) + end.tv_usec) - (start.tv_usec);
                 time3diff=micro1;
                 FILE * fptr;
-                fptr=fopen("ans2.txt","a");
+                fptr=fopen("/home/vidur/bkhcod/ans2.txt","a");
                 //fputs("Vidur is good boy",fptr);
                 char str[42];
                 sprintf(str, "%d", time3diff);
